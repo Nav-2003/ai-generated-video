@@ -13,19 +13,19 @@ const Sidebar = () => {
         AI Short Vid
       </div>
       <nav className="flex flex-col space-y-4">
-        <Link href="/dashboard" className={`hover:bg-gray-700 px-4 py-2 rounded flex items-center space-x-2 ${path==='dashboard'&&'bg-gray-700'}`}>
+        <Link href="/dashboard" className={`hover:bg-gray-700 px-4 py-2 rounded flex items-center space-x-2 ${path==='/dashboard'&&'bg-gray-700'}`}>
           <PanelsTopLeft size={18} />
           <span>Dashboard</span>
         </Link>
-        <Link href="/create-new" className="hover:bg-gray-700 px-4 py-2 rounded flex items-center space-x-2">
+        <Link href="dashboard/create-new" className={`hover:bg-gray-700 px-4 py-2 rounded flex items-center space-x-2 ${path==='/dashboard/create-new'&&'bg-gray-700'}`}>
           <FileVideo size={18} />
           <span>Create New</span>
         </Link>
-        <Link href="/upgrade" className="hover:bg-gray-700 px-4 py-2 rounded flex items-center space-x-2">
+        <Link href="/upgrade" className={`hover:bg-gray-700 px-4 py-2 rounded flex items-center space-x-2 ${path==='/upgrade'&&'bg-gray-700'}`}>
           <ShieldPlus size={18} />
           <span>Upgrade</span>
         </Link>
-        <Link href="/account" className="hover:bg-gray-700 px-4 py-2 rounded flex items-center space-x-2">
+        <Link href="/account" className={`hover:bg-gray-700 px-4 py-2 rounded flex items-center space-x-2 ${path==='/account'&&'bg-gray-700'}`}>
           <CircleUser size={18} />
           <span>Account</span>
         </Link>

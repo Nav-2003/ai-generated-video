@@ -5,8 +5,12 @@ function layout({children}:{children:React.ReactNode}) {
   return (
     <div> 
       <Header/> 
+      <div className="flex">
       <Sidebar/>
+      <div className="w-full">
       {children}
+      </div>
+      </div>
     </div>
   )
 }
