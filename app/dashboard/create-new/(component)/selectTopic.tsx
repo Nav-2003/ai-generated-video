@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Select,
   SelectTrigger,
@@ -5,8 +7,15 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select"; 
+import { useState } from "react";
+import { Textarea } from "@/components/ui/textarea";
 
-function SelectTopic() {
+
+type Type={
+  onUserSelect:(fieldName:string,fieldValue:string)=>void;
+}
+function SelectTopic({onUserSelect}:Type) {
+  const [item,setitem]=useState('')
   const options = [
     "Custom Prompt",
     "Random Ai Story",
@@ -21,8 +30,11 @@ function SelectTopic() {
       <div className="text-purple-700 font-semibold text-2xl">Content</div>
       <div className="text-gray-500 text-sm">What is the topic of your video?</div>
 
-      <Select>
-        <SelectTrigger className="w-full text-lg outline-none">
+      <Select  onValueChange={(value)=>{
+        setitem(value);
+        value!='Custom Prompt'&&onUserSelect('topic',value)
+      }}>
+        <SelectTrigger className="w-full text-lg focus-visible:ring-1 focus-visible:ring-fuchsia-600">
           <SelectValue placeholder="Select content type" />
         </SelectTrigger>
         <SelectContent>
@@ -33,6 +45,12 @@ function SelectTopic() {
           ))}
         </SelectContent>
       </Select>
+      {
+        (item==='Custom Prompt')&&<Textarea onChange={(e)=>onUserSelect('item',e.target.value)}
+        className="p-3 min-h-[80px]  focus-visible:ring-2 focus-visible:ring-purple-500"
+        placeholder="Write what type of content you want to create..."
+      />
+      }
     </div>
   );
 }
