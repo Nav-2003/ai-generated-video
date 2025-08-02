@@ -30,7 +30,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={outfit.className}
+          className={`min-h-screen overflow-y-auto ${outfit.className}`}
         >
           <Provider>{children}</Provider>
         </body>

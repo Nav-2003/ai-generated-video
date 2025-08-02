@@ -7,7 +7,7 @@ function layout({children}:{children:React.ReactNode}) {
       <Header/> 
       <div className="flex">
       <Sidebar/>
-      <div className="w-full">
+      <div>
       {children}
       </div>
       </div>
